@@ -49,7 +49,7 @@ line 2: pubilc static void main(String args[])
        2. Go to the command prompt
        3. Go to location where source code file is saved.
        4. Compile using javac filename.java, specify the filename used. Java compiler converts source code into bytecode which is a .class file 
-       5. Run the .class using java filename, JVM converts bytecode into executable  which is .exe file
+       5. JVM converts the bytecode into machine understandable code. Execute the .class using java classname.
        
        
        
