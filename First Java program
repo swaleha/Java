@@ -43,6 +43,18 @@ line 2: pubilc static void main(String args[])
         console. println is used to display the content on the console with a new line.
         
         
+       Running Java progrma through command prompt:
+       
+       1. Edit source code in text editor and save it
+       2. Go to the command prompt
+       3. Go to location where source code file is saved.
+       4. Compile using javac filename.java, specify the filename used
+       5. Run using java filename
+       
+       
+       
+        
+        
         
         
         
