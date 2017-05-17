@@ -1,0 +1,52 @@
+create a class HelloWorld:
+
+Go to Eclipse IDE, click on new -> create a new Java Project -> Give a project name
+click on new-> class -> give the class name -> check the public static void main(string args[]) method -> click on finish
+
+
+class HelloWorld gets created, which is as follows:
+
+class HelloWorld{
+  public static void main(String args[]){
+    System.out.println("hello world!");  //type this output statement within the class
+  }
+}
+ 
+Right click on the file from the tree view and run as Java Application.
+The output hello world! gets desplayed in the console.
+
+line 1: This is the class definition
+
+        class is a keyword and HelloWorld is the class name, which is an identifier 
+        
+        opening and closing braces mark the scope of the class
+        
+line 2: pubilc static void main(String args[])
+
+        This line demarcates the start point of execution
+
+        public: It is a keyword and access modifier. Which specifies that the main() method can be accessed from anywhere
+        
+        static: Static keyword specifies that main() method can be accessed without object creation
+        
+        void: void specifies that main() method doesn't return anything
+        
+        main: This is given in the JVM configuration.
+        
+        String []: This specifies that main method() accepts only one argument, argument should be an array. And array elements should be of type string.
+          
+          
+  line 3: This displays hello world! followed by a new line to the console.
+
+        System is a pre-defined class which has access to the system and out is a variable of output stream that is connected to the 
+        
+        console. println is used to display the content on the console with a new line.
+        
+        
+        
+        
+        
+        
+         
+        
+        
