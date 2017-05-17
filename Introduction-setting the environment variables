@@ -1,0 +1,44 @@
+Java is -
+
+* object-oriented
+* class-based
+* concurrent
+* platform independent
+* general purpose programming language
+
+However, JDK, JRE and JVM are platform dependent because the configuration is based on their operating system. 
+
+JDK(Java Development Tool Kit): It is comprised of Java Compiler(Javacc),Jar files,debugger and Javadocs. This is used by Java developers.
+JRE(Java Runtime Environment): It is used by the users to run Java programs. It comprised of Java libraries to run Java programs.
+JVM(Java Virtual Machine): This is a abstract machine whose specification provides runtime environment which is used to run bytecode.
+
+Setting the environment variables for Java:
+
+1. Download Java from http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html either 32 bit or 64 bit based on your operating system
+2. Install Java on your machine. Go to the location where it is installed, copy the entire path(till the bin directory of jdk).
+3. Right click on my computer, go to properties -> advanced system properties -> under the Advanced tab click on environment variables
+4. Click on New button under the user variables 
+5. Give the variable name as JAVA_HOME and paste the Java installation path as the variable value
+6. Click Ok. Again click on OK.
+
+Now the environment variables are set.
+
+To check if Java is installed correctly:
+
+1.press windows+R button
+2.Type cmd and click on ok
+3. type java -version
+
+ This shows the version of Java installed on the system.
+ 
+ Java code can edited in various text editors like notepad, textpad but Eclipse IDE(Integrated Development Environment) or similaer IDEs are preferably chosen for ease of use.
+ 
+ 
+ 
+
+
+
+
+
+
+
