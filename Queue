@@ -1,0 +1,68 @@
+
+
+/**
+ * @author swaleha
+ *
+ */
+public class Queue {
+
+	private Node head;
+	
+	public void setHead(Node h){
+		this.head = h;
+	}
+
+	public Node getHead(){
+		return this.head;
+	}
+	
+	public void push(Node newOne){
+		if(head == null){
+			head = newOne;
+		}else{
+			newOne.setNext(head);
+			head=newOne;
+		}
+	}
+	
+	public Node find(String name){
+		Node marker = head;
+		while(marker!=null){
+			
+			if(marker.getName().equals(name)){
+				return marker;
+			}
+			marker = marker.getNext();
+		}
+		return null;
+	}
+	
+	public void pop(){
+//The last element points to null
+//we have to make its parent element point to null, instead of the Node
+/*
+ * Go through the queue
+ * If the next node is going to be the last element
+ * we remove it  from the queue
+ * 
+ */
+		Node marker = head;
+		
+		while(marker != null){
+			
+			Node child = marker.getNext();
+			
+			if(child != null){
+				
+				if(child.getNext() == null){
+					
+					marker.setNext(null);
+					
+				}
+			}
+			
+			marker = marker.getNext();
+		}
+	
+	}
+}
