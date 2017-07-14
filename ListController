@@ -1,0 +1,94 @@
+import java.util.Scanner;
+
+
+/**
+ * This class is a test controller for the linked list which is students list
+ * @author swaleha
+ * @date 07/13/2017
+ */
+public class ListController {
+
+	private List list;
+	
+	public ListController(){
+		list = new List(null);
+	}
+	public static void main(String[] args) {
+		
+		ListController c = new ListController();
+		
+		Scanner in = new Scanner(System.in);
+		
+		System.out.println("Enter the number of students whose details you want to add: ");
+		
+		int number = in.nextInt();
+		
+		System.out.println("Please enter the student details:");
+		
+		for(int i=1;i<=number;i++){
+			c.askNode();
+		}
+		
+		c.findNode();
+		
+	}
+	
+	public void askNode(){
+		
+		/*
+		 * Ask the student details
+		 * Create a new node with them
+		 * add these nodes to the list using addToList(Node) method
+		 */
+		
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Enter the student name: ");
+		String name = scan.nextLine();
+		
+		System.out.println("Enter the USN: ");
+		String USN = scan.nextLine();
+		
+
+		System.out.println("Enter the year: ");
+		int year = scan.nextInt();
+		scan.nextLine();
+		
+		Node newOne = new Node(name,USN,year);
+		
+		list.addToList(newOne);
+		
+	}
+	public void findNode(){
+		/*
+		 * ask the student name whose details they want to be displayed
+		 * call the find(String) method with this name
+		 *  
+		 */
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("Enter the student name whose details you want to check: ");
+		
+		String name = scan.nextLine();
+		
+		Node found = list.find(name);
+		
+		if(found != null){
+			printDetails(found);
+		}else{
+			System.out.println("Student not found");
+		}
+		
+	}
+	public void printDetails(Node n){
+		System.out.println("Name: "+n.getName());
+		System.out.println("USN: "+n.getUSN());
+		System.out.println("Year: "+n.getYear());
+		System.out.println();
+		
+		if(n.getNext()!=null){
+			System.out.println("Next node: "+n.getNext().getName());
+		}else{
+			System.out.println("End of list");
+		}
+	}
+}
