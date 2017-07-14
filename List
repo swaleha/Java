@@ -1,0 +1,51 @@
+/**
+ * 
+ */
+
+/**
+ * This class contains two methods:
+ * addToList(Node)- creates a new node in the list
+ * find(String)- finds first Node with the given name
+ * 
+ * @author swaleha
+ * @date 12/07/2017
+ */
+public class List{
+	
+	private Node head;
+	
+	public List(Node h){
+		this.head = h;
+	}
+	
+	public void setHead(Node h){
+		this.head = h;
+	}
+	
+	public Node getHead(){
+		return this.head;
+	}
+	
+	public void addToList(Node newOne){
+		if(head==null){
+			head=newOne;
+		}else{
+			newOne.setNext(head);
+			head=newOne;
+		}
+	}
+	
+	public Node find(String name){
+		Node marker = head;
+		
+		while(marker!=null){
+			if(marker.getName().equals(name)){
+				return marker;
+			}
+			marker = marker.getNext();
+		}
+		
+		return null;
+	}
+	
+}
