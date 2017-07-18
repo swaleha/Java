@@ -1,0 +1,19 @@
+/**
+ * @author swaleha
+ *
+ */
+public class Dog extends Animals{
+
+	private String bark1 = "Woouuff!";
+	public Dog(){
+		super();
+	}
+	
+	public Dog(int a,String c){
+		super(a,c);
+	}
+	
+	public void bark(){
+		System.out.println("Woof!");
+	}
+}
