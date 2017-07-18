@@ -1,0 +1,42 @@
+/**
+ * 
+ */
+
+/**
+ * @author swaleha
+ *
+ */
+public class StackNode {
+
+	private String name,phone;
+	private StackNode next;
+	
+	
+	public StackNode(String n,String p){
+		this.name=n;
+		this.phone=p;
+	}
+	
+	public void setName(String n){
+		this.name=n;
+	}
+	
+	public void setPhone(String p){
+		this.phone=p;
+	}
+	
+	public void setNext(StackNode n){
+		this.next=n;
+	}
+	
+	public String getName(){
+		return this.name;
+	}
+	public String getphone(){
+		return this.phone;
+	}
+	public StackNode getNext(){
+		return this.next;
+	}
+
+}
