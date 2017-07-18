@@ -48,4 +48,18 @@ public class List{
 		return null;
 	}
 	
+	public void removeNode(String name){
+		Node marker = head;
+		Node child = marker.getNext();
+
+		while(head!=null){
+			if(head.getName().equals(name)){
+				head=head.getNext();
+			}else{
+			if(child.getName().equals(name)){
+				marker.setNext(null);	
+			}
+		}marker=marker.getNext();
+	}
+}
 }
