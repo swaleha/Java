@@ -1,0 +1,47 @@
+/**
+ * 
+ */
+
+/**
+ * @author swaleha
+ *
+ */
+public class Stack {
+	
+	private StackNode head;
+	
+	public Stack(StackNode h){
+		this.head=h;
+	}
+	
+	public void addToStack(StackNode newOne){
+		if(head==null){
+			head=newOne;
+		}else{
+			newOne.setNext(head);
+			head=newOne;
+		}
+	}
+	
+	public StackNode findNode(String name){
+		StackNode marker = head;
+		while(marker!=null){
+			if(marker.getName().equals(name)){
+				return marker;
+			}
+			marker=marker.getNext();
+		}
+		return null;
+	}
+	
+	public StackNode pop(){
+		if(head!=null){
+			StackNode popped = head;
+			head=head.getNext();
+			return popped;
+		}
+		
+		return null;
+	}
+
+}
