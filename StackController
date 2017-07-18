@@ -1,0 +1,81 @@
+import java.util.Scanner;
+
+public class StackController {
+
+	Stack stack;
+	
+	public StackController(){
+		stack = new Stack(null);
+	}
+	public static void main(String[] args) {
+		StackController sc = new StackController();
+			sc.runMenu();	
+
+	}
+	public String askInput(){
+		System.out.println("------------------------------");
+		System.out.println("\nPress a to add customer to the stack");
+		System.out.println("Press r to remove customer from the stack");
+		System.out.println("Press f to find customer details from the stack");
+		System.out.println("Press q to quit");
+		System.out.println("Enter your choice: ");
+		Scanner scan = new Scanner(System.in);
+		String input=scan.nextLine();
+		return input;
+	}
+	
+	public void runMenu(){
+		String input = askInput();
+		while(!input.equals("q")){
+			if(input.equals("a")){
+				askNode();
+			}else if(input.equals("r")){
+				remove();
+			}else if(input.equals("f")){
+				find();
+			}else{
+				System.out.println("\nInvalid choice");
+			}
+			input=askInput();
+		}
+	}
+	public void askNode(){
+		System.out.println("\nEnter the customer name: ");
+		Scanner scan = new Scanner(System.in);
+		String name=scan.nextLine();
+		
+		
+		System.out.println("Enter the customer phone number: ");
+		String phone=scan.nextLine();
+		
+		StackNode newOne = new StackNode(name,phone);
+		stack.addToStack(newOne);
+	}
+	
+	public void remove(){
+		stack.pop();
+	}
+	public void find(){
+		System.out.println("\nEnter the customer name whose details you want to find: ");
+		Scanner scan = new Scanner(System.in);
+		String name=scan.nextLine();
+		
+		StackNode found = stack.findNode(name);
+	
+		if(found!=null){
+			printDetails(found);
+		}else{
+			System.out.println("Node not found in the stack");
+		}
+	}
+	
+	public void printDetails(StackNode node){
+		System.out.println("Name: "+node.getName());
+		System.out.println("Phone number: "+node.getphone());
+		if(node.getNext()!=null){
+		System.out.println("\nNext node in the stack: "+node.getNext().getName());
+		}else{
+			System.out.println("No more nodes in the stack");
+		}
+	}
+}
