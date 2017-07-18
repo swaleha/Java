@@ -1,0 +1,36 @@
+
+/** This is the super class which is created to demonstrate the concept of inheritance
+ * 
+ * @author swaleha
+ * @date 12/07/2017
+ */
+public class Animals {
+
+	protected int age;
+	protected String color;
+	
+	public Animals(){
+		
+	}
+	
+	public Animals(int a,String c){
+		age = a;
+		color = c;
+	}
+	
+	public int getAge(){
+		return age;
+	}
+	
+	public String getColor(){
+		return color;
+	}
+	
+	public void setAge(int a){
+		age = a;
+	}
+	public void setColor(String c){
+		color = c;
+	}
+	
+}
