@@ -1,0 +1,21 @@
+/**
+ * 
+ */
+
+/**
+ * @author swaleha
+ *
+ */
+public class Test {
+
+	public static void main(String[] args) {
+
+		Dog d = new Dog();
+		d.setAge(5);
+		
+		Animals a = new Animals();
+		d.bark();
+		System.out.println("Dog's age is: "+d.getAge());
+	}
+
+}
