@@ -1,0 +1,119 @@
+import java.util.Scanner;
+
+/**
+ * @author swaleha
+ * @date 07/22/2017
+ */
+public class BinaryTreeController {
+	
+	BinaryTree tree=new BinaryTree();
+	
+	public static void main(String[] args) {
+		
+		BinaryTreeController BTC = new BinaryTreeController();
+		BTC.runMenu();
+	}
+	
+	public String askInput(){
+		System.out.println("\nPress 'a' to add node");
+		System.out.println("Press 'd' to delete node");
+		System.out.println("Press 'f' to find node");
+		System.out.println("Press 'q' to quit");
+		System.out.println("\nEnter your choice:");
+		Scanner scan =new Scanner(System.in);
+		String input = scan.nextLine();
+		return input;
+	}
+
+	
+	public void runMenu(){
+		String input = askInput();
+		
+		while(!input.equals("q")){
+			
+			if(input.equals("a")){
+				askNode();
+			}else if(input.equals("d")){
+				delete();
+			}else if(input.equals("f")){
+				find();
+			}else{
+				System.out.println("\nInvalid choice\n");
+			}
+			
+			input=askInput();
+		}
+	}
+	
+	public void askNode(){
+		
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Enter the customer name: ");
+		String name=scan.nextLine();
+		
+
+		System.out.println("Enter the customer phone number: ");
+		String phone=scan.nextLine();
+
+		System.out.println("Enter the customer ID: ");
+		int id=scan.nextInt();
+		scan.nextLine();
+
+		BinaryTreeNode node = new BinaryTreeNode(name,phone,id);
+		
+		if(tree.isEmpty()){
+			tree.setRoot(node);
+		}else{
+			tree.addNode(node);
+		}
+	}
+	
+	
+	public void delete(){
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Enter the id to delete the node: ");
+		int id=scan.nextInt();
+		tree.delete(id);
+	}
+	
+	public void find(){
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Enter the id to find the node details: ");
+		int id = scan.nextInt();
+		BinaryTreeNode found=tree.find(id);
+		if(found!=null){
+			printDetails(found);
+		}else{
+			System.out.println("Node not found");
+		}
+	}
+	
+	public void printDetails(BinaryTreeNode node){
+		
+		System.out.println("\nCustomer Name: "+node.getName());
+		System.out.println("Customer phone number: "+node.getPhone());
+		System.out.println("Customer ID: "+node.getId());
+	
+		if(node.getLeft()!=null && node.getRight()!=null){
+			
+			System.out.println("\nCustomer to the left is, \tName: "+node.getLeft().getName()+"\tID: "+node.getLeft().getId());
+			System.out.println("Customer to the right is, \tName: "+node.getRight().getName()+"\tID: "+node.getRight().getId());
+				
+		}else if(node.getLeft()==null && node.getRight()!=null ){
+			
+		System.out.println("Customer to the right- \tName: "+node.getRight().getName()+"\tID: "+node.getRight().getId());
+		
+		}else if(node.getLeft()!=null && node.getRight()==null){
+		
+			System.out.println("\nCustomer to the left-\tName: "+node.getLeft().getName()+"\tID: "+node.getLeft().getId());
+
+		}else{
+			System.out.println("Left and right nodes are not present");
+
+			}
+	
+		}
+			
+	}	
+	
+	
