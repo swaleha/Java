@@ -1,0 +1,68 @@
+/**
+ *
+ * @author swaleha
+ *
+ */
+public class BinaryTreeNode {
+
+	private String name,phone;
+	private int id;
+	private BinaryTreeNode left,right;
+	
+	public BinaryTreeNode(String n,String p,int i){
+		this.name=n;
+		this.phone=p;
+		this.id=i;
+	}
+
+	public void setName(String n){
+		this.name=n;
+	}
+	
+	public void setPhone(String p){
+		this.phone=p;
+	}
+	
+	public void setId(int i){
+		this.id=i;
+	}
+
+	public void setLeft(BinaryTreeNode l){
+		this.left=l;
+	}
+	
+	public void setRight(BinaryTreeNode r){
+		this.right=r;
+	}
+
+	public String getName(){
+		return this.name;
+	}
+
+	public String getPhone(){
+		return this.phone;
+	}
+	
+	public int getId(){
+		return this.id;
+	}
+
+	public BinaryTreeNode getLeft(){
+		return this.left;
+	}
+	
+	public BinaryTreeNode getRight(){
+		return this.right;
+	}
+	
+	public int getChildren(){
+		if(left!=null && right!=null){
+			return 2;
+		}else if(left!=null || right!=null){
+			return 1;
+		}else{
+			return 0;
+		}
+	}
+
+}
