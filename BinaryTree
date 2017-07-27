@@ -1,0 +1,236 @@
+/**
+ * 
+ */
+
+/**
+ * @author swaleha
+ *
+ */
+public class BinaryTree {
+
+	private BinaryTreeNode root;
+
+	public void setRoot(BinaryTreeNode r) {
+		this.root = r;
+	}
+
+	public BinaryTreeNode getRoot() {
+		return this.root;
+	}
+
+	public boolean isEmpty() {
+		return root == null;
+	}
+
+	public boolean add(BinaryTreeNode newOne, BinaryTreeNode Parent) {
+		
+		if (newOne.getId() == Parent.getId()) {
+
+			return false;
+
+		} else if (newOne.getId() < Parent.getId()) {
+			
+			//new node belongs to the left of the parent
+			
+			if (Parent.getLeft() == null) {
+				
+				Parent.setLeft(newOne);
+				
+				return true;
+				
+			} else {
+				
+				add(newOne, Parent.getLeft());
+				
+			}
+		} else {
+			  
+			//new node belongs to the left of the parent
+			
+			if (Parent.getRight() == null) {
+				
+				Parent.setRight(newOne);
+				
+				return true;
+				
+			} else {
+				
+				add(newOne, Parent.getRight());
+				
+			}
+		}
+		return false;
+	}
+
+	public boolean addNode(BinaryTreeNode newOne) {
+		
+		return add(newOne, root);
+		
+	}
+
+	public BinaryTreeNode find(int idToFind) {
+		BinaryTreeNode marker = root;
+
+		while (marker != null) {
+			if (idToFind > marker.getId()) {
+				marker = marker.getRight();
+			} else if (idToFind < marker.getId()) {
+				marker = marker.getLeft();
+			} else {
+				return marker;
+			}
+		}
+		return null;
+
+	}
+
+	public BinaryTreeNode findRightMost(BinaryTreeNode start) {
+		BinaryTreeNode marker = start;
+		while (marker != null) {
+			BinaryTreeNode right = marker.getRight();
+			if (right != null) {
+				marker = marker.getRight();
+			} else {
+				return marker;
+			}
+		}
+		return null;
+
+	}
+
+	public BinaryTreeNode findParent(int idToFind) {
+		BinaryTreeNode marker = root;
+		while (marker != null) {
+			BinaryTreeNode left = marker.getLeft();
+			BinaryTreeNode right = marker.getRight();
+			if ((marker.getId() == idToFind)
+					|| (left != null && left.getId() == idToFind)
+					|| (right != null && right.getId() == idToFind)) {
+				return marker;
+			} else if (idToFind < marker.getId()) {
+				marker = marker.getLeft();
+			} else {
+				marker = marker.getRight();
+			}
+		}
+		return null;
+	}
+
+	public void delete(int idToDelete) {
+		
+		BinaryTreeNode toDelete = find(idToDelete);
+		BinaryTreeNode parent = findParent(toDelete.getId());
+
+		if (toDelete == null) {
+			System.out.println("Nothing to delete");
+		} else {
+
+			if (toDelete.getChildren() == 0) {
+
+				if (toDelete == parent.getLeft()) {
+
+					parent.setLeft(null);
+
+				} else if (toDelete == parent.getRight()) {
+
+					parent.setRight(null);
+
+				} else {
+
+					root = null;
+
+				}
+
+			} else if (toDelete.getChildren() == 1) {
+
+				if (toDelete == parent.getLeft()) {
+
+					if (toDelete.getLeft() != null) {
+
+						parent.setLeft(toDelete.getLeft());
+
+					} else {
+						parent.setLeft(toDelete.getRight());
+					}
+
+				} else if (toDelete == parent.getRight()) {
+
+					if (toDelete.getLeft() != null) {
+
+						parent.setRight(toDelete.getLeft());
+
+					} else {
+						parent.setRight(toDelete.getRight());
+					}
+
+				} else {
+
+					if (toDelete.getLeft() != null) {
+						root = toDelete.getLeft();
+					} else {
+						root = toDelete.getRight();
+					}
+				}
+
+			} else {
+
+				// node to delete with 2 children 
+				if (toDelete == parent.getLeft()) {
+
+					BinaryTreeNode rightmost = findRightMost(toDelete.getLeft());
+					BinaryTreeNode rightMostParent = findParent(rightmost
+							.getId());
+
+					if (rightMostParent != toDelete) {
+						rightMostParent.setRight(rightmost.getLeft());
+					}
+
+					if (toDelete.getLeft() != rightmost) {
+						rightmost.setLeft(toDelete.getLeft());
+					}
+
+					rightmost.setRight(toDelete.getRight());
+
+					parent.setLeft(rightmost);
+
+				} else if (toDelete == parent.getRight()) {
+
+					BinaryTreeNode rightmost = findRightMost(toDelete.getLeft());
+					BinaryTreeNode rightMostParent = findParent(rightmost
+							.getId());
+
+					if (rightMostParent != toDelete) {
+						rightMostParent.setRight(rightmost.getLeft());
+					}
+
+					if (toDelete != rightmost) {
+						rightmost.setLeft(toDelete.getLeft());
+					}
+
+					rightmost.setRight(toDelete.getRight());
+
+					parent.setRight(rightmost);
+
+				} else {
+
+					BinaryTreeNode rightmost = findRightMost(toDelete.getLeft());
+					BinaryTreeNode rightMostParent = findParent(rightmost
+							.getId());
+
+					if (rightMostParent != toDelete) {
+						rightMostParent.setRight(rightmost.getLeft());
+					}
+
+					if (toDelete != rightmost) {
+						rightmost.setLeft(toDelete.getLeft());
+					}
+
+					rightmost.setRight(toDelete.getRight());
+					root = rightmost;
+				}
+
+			}
+		}
+	}
+
+}
