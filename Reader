@@ -1,0 +1,36 @@
+import java.io.FileReader;
+import java.io.BufferedReader;
+
+public class Reader{
+
+  public static void main(String args[]){
+  
+  try{
+  
+    FileReader fr = new FileReader("c:/files/myfile.txt");
+    BufferedReader br = new BufferedReader(fr);
+    String line = br.readLine();
+    
+    if(br!=null){
+    
+      while(line!=null){
+      
+        System.out.println(line);
+        line=br.readLine():
+       
+       }
+     
+     }
+    
+    }catch(Exception e){
+    
+    System.out.println("Error opening file");
+    e.printStackTrace();
+    
+      }
+   }
+}
+
+    
+    
+  
