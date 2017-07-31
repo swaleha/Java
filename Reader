@@ -1,36 +1,45 @@
+/**
+ * @author swaleha
+ *
+ */
 import java.io.FileReader;
 import java.io.BufferedReader;
 
-public class Reader{
+public class NewReader {
 
-  public static void main(String args[]){
-  
-  try{
-  
-    FileReader fr = new FileReader("c:/files/myfile.txt");
-    BufferedReader br = new BufferedReader(fr);
-    String line = br.readLine();
-    
-    if(br!=null){
-    
-      while(line!=null){
-      
-        System.out.println(line);
-        line=br.readLine():
-       
-       }
-     
-     }
-    
-    }catch(Exception e){
-    
-    System.out.println("Error opening file");
-    e.printStackTrace();
-    
-      }
-   }
+	public static void main(String[] args) {
+
+		BufferedReader br = null;
+
+		try {
+
+			FileReader fr = new FileReader("c:/files/dumbme.txt");
+			br = new BufferedReader(fr);
+
+		} catch (Exception e) {
+			System.out.println("Error opening file");
+			e.printStackTrace();
+		}
+
+		try {
+
+			if (br != null) {
+
+				String line = br.readLine();
+
+				while (line != null) {
+					System.out.println(line);
+					line = br.readLine();
+				}
+
+				br.close();
+
+			}
+
+		} catch (Exception e) {
+			System.out.println("Error reading file!");
+			e.printStackTrace();
+		}
+	}
+
 }
-
-    
-    
-  
