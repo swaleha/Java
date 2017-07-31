@@ -1,0 +1,50 @@
+import java.util.Scanner;
+import java.io.FileWriter;
+
+public class Writer{
+
+  public static void main(String args[]){
+  
+    Scanner scan = new Scanner(System.in);
+    FileWriter fw=null;
+    
+    try{
+    
+    fw=new FileWriter("c:/files/Newfile.txt");
+    
+    }catch(Exception e){
+    
+    System.out.println("Error opening file!");
+    e.printStackTrace();
+    
+    }
+    
+    System.out.println("Enter the lines to write to the file");
+    String line = scan.nextLine();
+    
+   try{
+    
+    if(fw!=null){
+    
+      while(line!=null){
+      
+        fw.write(line+"\n");
+        line=scan.nextLine();
+        
+        }
+   
+   fw.close();
+   
+   }
+  
+    }catch(Exception e){
+
+    System.out.println("Error writing to the file");
+    e.printStackTrace();
+  
+    }
+  
+  }
+  
+}
+    
