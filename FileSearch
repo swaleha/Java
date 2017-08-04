@@ -1,0 +1,126 @@
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
+public class FileSearch {
+
+	public static int count = 0;
+	
+	private String fileNameToSearch;
+	private List<String> result = new ArrayList<String>();
+	
+	public String getFileNameToSearch(){
+		return this.fileNameToSearch;
+	}
+	
+	public void setFileNameToSearch(String fileNameToSearch){
+		this.fileNameToSearch=fileNameToSearch;
+	}
+	
+	public List<String> getResult(){
+		return this.result;
+	}
+	
+	public static void main(String[] args) {
+
+		FileSearch fileSearch = new FileSearch();
+		
+		
+		fileSearch.searchDirectory(new File("H:/Study Material"),"sql class queries.txt");
+		
+			
+			if(count>0){
+				
+				System.out.println(fileSearch.getFileNameToSearch()+" File deleted");
+			
+			}else{
+				
+				System.out.println("No result found!");
+				
+			}
+	
+			/*Search file recursively in directories
+		   
+		   
+		   int count=fileSearch.getResult();
+		   
+		   if(count==0){
+			   
+		    System.out.println("No results found!");
+		   
+		   }else{
+			   System.out.println("\nFound"+count+" result!");
+			   
+			   for(String matched:fileSearch.getResult()){
+				   
+				   System.out.println("Found "+matched);
+			   }
+			   
+		   }
+		 */
+
+	}
+
+	
+	public void searchDirectory(File directory,String fileNameToSearch){
+		
+		setFileNameToSearch(fileNameToSearch);
+		
+		if(directory.isDirectory()){
+			
+			search(directory);
+			
+		}else{
+			
+			System.out.println(directory.getAbsoluteFile()+" is not a directory!");
+		}
+	}
+	
+ private void search(File file){
+	
+	try{
+		
+		if(file.isDirectory()){
+			
+			System.out.println("Searching directory..."+file.getAbsoluteFile());
+			
+			//Do you have permission to read the file?
+			
+			if(file.canRead()){
+				
+				for(File temp:file.listFiles()){
+					
+					if(temp.isDirectory()){
+						
+						search(temp);
+						
+					}else{
+						
+						if(getFileNameToSearch().equals(temp.getName())){
+							
+							/* to search file */
+							//result.add(temp.getAbsoluteFile().toString());
+							
+							temp.delete();
+							count=count+1;
+						}
+						
+					}
+				}
+				
+				
+			}
+			
+		}
+	
+	}catch(Exception e){
+		System.out.println(e);
+		e.printStackTrace();
+	
+		}
+		
+	
+	}
+	
+	
+}
