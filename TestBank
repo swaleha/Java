@@ -1,0 +1,47 @@
+
+public class TestBank {
+
+	public static void main(String[] args) {
+		Bank b1 = new Bank();
+		b1.name = "ICICI";
+		b1.accbalance = 10000;
+		b1.interestGain(100);
+
+		System.out.println("Accout balance is: " + b1.accbalance);
+
+		Members m = new Members();
+		m.name = "Jack Dorson";
+		m.address = "avenue road, Pittsburg";
+
+		// add memeber to the bank
+		b1.mem = m;
+
+		// adds member name and address to the bank
+		System.out.println(b1.mem.name);
+		System.out.println(b1.mem.address);
+
+		System.out.println();
+
+		Bank b2 = new Bank();
+		b2.name = "SBI";
+		b2.accbalance = 20000;
+		b2.interestGain(2000);
+		System.out.println("Accout balance is: " + b2.accbalance);
+
+		b2.mem = new Members();
+		b2.mem.name = "Indy Jones";
+		b2.mem.address = "Davis drive, Ohio";
+
+		System.out.println(b2.mem.name);
+		System.out.println(b2.mem.address);
+		b2.getBalance();
+		Members m2 = b2.getBalance();
+		m2.deposit();
+		m2.withrawal();
+
+		System.out.println();
+		b2.getBalance().deposit();
+		b2.getBalance().withrawal();
+	}
+
+}
