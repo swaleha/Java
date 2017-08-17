@@ -1,0 +1,80 @@
+
+public class SwapNumbers {
+
+	int r, s;
+
+	// pass by value not supported by Java
+	public static void swapByValue(int r, int s) {
+		int temp = r;
+		r = s;
+		s = temp;
+
+	}
+
+//Java supports pass by reference
+	public static void swapByReference(SwapNumbers a) {
+		int temp = a.r;
+		a.r = a.s;
+		a.s = temp;
+
+	}
+
+	public static void main(String[] args) {
+  
+		SwapNumbers sn = new SwapNumbers();
+		sn.r = 10;
+		sn.s = 20;
+
+		swapByValue(sn.r, sn.s);
+		System.out.println("Java Doesn't support pass by value, " + "\nHence SwapByValue function cant swap values "
+				+ "\nand values of r ans s remain the same: \nr=" + (sn.r) + "\ts=" + (sn.s));
+
+		System.out.println();
+
+		swapByReference(sn);
+		System.out.println("Java supports pass by reference "
+				+ "\nHence SwapByReference swaps the values of r and s: \nr=" + (sn.r) + "\ts=" + (sn.s));
+
+	}
+
+}
+
+public class SwapNumbers {
+
+	int r, s;
+
+	// pass by value not supported by Java
+	public static void swapByValue(int r, int s) {
+		int temp = r;
+		r = s;
+		s = temp;
+
+	}
+
+	public static void swapByReference(SwapNumbers a) {
+		int temp = a.r;
+		a.r = a.s;
+		a.s = temp;
+
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		SwapNumbers sn = new SwapNumbers();
+		sn.r = 10;
+		sn.s = 20;
+
+		swapByValue(sn.r, sn.s);
+		System.out.println("Java Doesn't support pass by value, " + "\nHence SwapByValue function cant swap values "
+				+ "\nand values of r ans s remain the same: \nr=" + (sn.r) + "\ts=" + (sn.s));
+
+		System.out.println();
+
+		swapByReference(sn);
+		System.out.println("Java supports pass by reference "
+				+ "\nHence SwapByReference swaps the values of r and s: \nr=" + (sn.r) + "\ts=" + (sn.s));
+
+	}
+
+}
