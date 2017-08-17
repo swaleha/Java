@@ -1,0 +1,13 @@
+
+public class Members {
+
+	String name,address;
+
+	public void deposit() {
+		System.out.println("Amount deposited!");
+	}
+	
+	public void withrawal() {
+		System.out.println("Amount withdrawn!");
+	}
+}
