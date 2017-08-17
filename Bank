@@ -1,0 +1,16 @@
+
+public class Bank {
+
+	String name;
+	int accbalance;
+	Members mem;
+
+	public int interestGain(int increment) {
+		accbalance = accbalance + increment;
+		return accbalance;
+	}
+
+	public Members getBalance() {
+		return mem;
+	}
+}
