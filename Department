@@ -1,0 +1,27 @@
+
+public class Department {
+
+	// non-static global variables
+	public String depName;
+	public int depId;
+	public int numOfEmp;
+
+	// static global variable
+	public static String compName;
+
+	// static method
+	public static void National_Holiday() {
+
+		System.out.println("National holiday declared!");
+	}
+
+	// non-static methods
+	public void addDept() {
+		System.out.println("Department added!");
+	}
+
+	public void changeDept() {
+		System.out.println("Department changed!");
+	}
+
+}
