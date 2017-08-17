@@ -1,0 +1,39 @@
+
+public class Company {
+
+	public static void main(String[] args) {
+
+		Department d1 = new Department();
+		Department d2 = new Department();
+
+		d1.depId=1;
+		d1.depName="IT";
+		d1.numOfEmp=5000;
+		d1.compName="Sony";
+		
+		d2.depId=2;
+		d2.depName="Production";
+		d2.numOfEmp=2000;
+		d2.compName="Samsung";
+			
+		System.out.println("Department Id:"+d1.depId);
+		System.out.println("Department Name:"+d1.depName);
+		System.out.println("Number of emmployees:"+d1.numOfEmp);
+
+		System.out.println();
+		
+		d1.addDept();
+		d1.changeDept();
+		
+		System.out.println("\nDepartment Id:"+d2.depId);
+		System.out.println("Department Name:"+d2.depName);
+		System.out.println("Number of emmployees:"+d2.numOfEmp);
+
+		System.out.println();
+
+		d2.addDept();
+		d2.changeDept();
+		
+	}
+
+}
